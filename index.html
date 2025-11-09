@@ -3,152 +3,920 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thursaun's GitHub Profile</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <title>Thursaun - Full Stack Software Engineer</title>
+  <meta name="description" content="Full Stack Software Engineer specializing in modern web technologies, cloud architecture, and scalable applications.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background: #f4f6f8;
+    * {
       margin: 0;
       padding: 0;
-      color: #222;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: #2d3748;
+      background: #0f172a;
+      min-height: 100vh;
+    }
+
+    .hero-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 0.05;
+      z-index: -1;
+    }
+
     .container {
-      max-width: 700px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      padding: 32px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
     }
-    .profile {
+
+    nav {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav .container {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 32px;
+      padding: 1rem 2rem;
     }
-    .profile img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid #e1e4e8;
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
     }
-    .profile-info {
-      flex: 1;
-    }
-    .profile-info h1 {
-      margin: 0 0 8px 0;
-      font-size: 2.2rem;
-    }
-    .profile-info p {
-      margin: 0 0 12px 0;
-      color: #555;
-    }
-    .stats {
+
+    nav ul {
       display: flex;
-      gap: 24px;
-      margin: 24px 0 0 0;
-    }
-    .stat {
-      font-size: 1.1rem;
-      color: #444;
-    }
-    .repos {
-      margin-top: 40px;
-    }
-    .repos h2 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-    }
-    .repo-list {
       list-style: none;
-      padding: 0;
+      gap: 2rem;
     }
-    .repo-list li {
-      background: #f8fafb;
-      margin-bottom: 12px;
-      padding: 16px;
-      border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-    }
-    .repo-list a {
-      color: #0366d6;
+
+    nav a {
+      color: #cbd5e1;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s;
     }
-    .repo-list a:hover {
-      text-decoration: underline;
+
+    nav a:hover {
+      color: #667eea;
+    }
+
+    .header {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      color: white;
+    }
+
+    .header h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header .tagline {
+      font-size: 1.5rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+    }
+
+    .header .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #667eea;
+    }
+
+    .profile-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .skills-section,
+    .projects-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .profile-avatar {
+      position: relative;
+    }
+
+    .profile-avatar img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid #f7fafc;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-avatar img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-info h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .profile-info .subtitle {
+      font-size: 1.25rem;
+      color: #718096;
+      margin-bottom: 1rem;
+    }
+
+    .profile-info .bio {
+      font-size: 1.1rem;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-card .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2d3748;
+    }
+
+    .stat-card .label {
+      font-size: 0.9rem;
+      color: #718096;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-category {
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      padding: 1.5rem;
+      border-radius: 15px;
+      border-left: 4px solid #667eea;
+    }
+
+    .skill-category h3 {
+      color: #2d3748;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+    }
+
+    .repos-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #718096;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+    }
+
+    .project-link:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .project-description {
+      color: #4a5568;
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-badge {
+      background: white;
+      color: #667eea;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #cbd5e1;
+    }
+
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .repo-card {
+      background: linear-gradient(135deg, #f7fafc, #edf2f7);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .repo-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .repo-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .repo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .repo-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2d3748;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .repo-name:hover {
+      color: #667eea;
+    }
+
+    .repo-description {
+      color: #718096;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .repo-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #a0aec0;
+    }
+
+    .repo-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .language-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #667eea;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #718096;
+    }
+
+    .error {
+      text-align: center;
+      padding: 3rem;
+      color: #e53e3e;
+      background: #fed7d7;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+
+    footer {
+      background: rgba(15, 23, 42, 0.95);
+      color: #cbd5e1;
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    footer .social-footer {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer .social-footer a {
+      color: #cbd5e1;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    footer .social-footer a:hover {
+      color: #667eea;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .header .tagline {
+        font-size: 1.2rem;
+      }
+
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .profile-info h1 {
+        font-size: 2.5rem;
+      }
+
+      .repos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-header {
+        flex-direction: column;
+      }
+
+      .project-links {
+        width: 100%;
+      }
+
+      .container {
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="hero-gradient"></div>
+
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">Thursaun</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#repositories">Repositories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1>Full Stack Software Engineer</h1>
+    <p class="tagline">Building scalable applications with modern technologies</p>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn btn-primary">
+        <i class="fas fa-envelope"></i> Get In Touch
+      </a>
+      <a href="https://github.com/Thursaun" target="_blank" class="btn btn-secondary">
+        <i class="fab fa-github"></i> View GitHub
+      </a>
+    </div>
+  </header>
+
   <div class="container">
-    <div class="profile" id="profile"></div>
-    <div class="repos" id="repos"></div>
+    <section class="profile-section" id="about">
+      <div class="loading">
+        <i class="fas fa-spinner fa-spin fa-2x"></i>
+        <p>Loading profile...</p>
+      </div>
+    </section>
+
+    <section class="skills-section" id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Technologies and tools I work with</p>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3><i class="fas fa-code"></i> Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">Tailwind CSS</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Express</span>
+            <span class="skill-tag">RESTful APIs</span>
+            <span class="skill-tag">GraphQL</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-database"></i> Database</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Redis</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3><i class="fas fa-cloud"></i> DevOps & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Highlighted work and live applications</p>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <h3 class="project-title">E-Commerce Platform</h3>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Thursaun" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+        <p class="project-description">
+          Full-stack e-commerce solution with user authentication, shopping cart, payment processing, and admin dashboard.
+          Features real-time inventory management and order tracking.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">MongoDB</span>
+          <span class="tech-badge">Stripe API</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <h3 class="project-title">Task Management App</h3>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Thursaun" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+        <p class="project-description">
+          Collaborative task management application with real-time updates, team collaboration features,
+          and interactive Kanban boards. Includes drag-and-drop functionality and progress tracking.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Firebase</span>
+          <span class="tech-badge">Material-UI</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <h3 class="project-title">Weather Dashboard</h3>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+            <a href="https://github.com/Thursaun" class="project-link" target="_blank">
+              <i class="fab fa-github"></i> Code
+            </a>
+          </div>
+        </div>
+        <p class="project-description">
+          Real-time weather application with location-based forecasts, interactive maps, and weather alerts.
+          Features responsive design and data visualization charts.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">API Integration</span>
+          <span class="tech-badge">Chart.js</span>
+          <span class="tech-badge">CSS3</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="repos-section" id="repositories">
+      <h2 class="section-title">
+        <i class="fas fa-code-branch"></i> GitHub Repositories
+      </h2>
+      <p class="section-subtitle">Recent open source contributions and personal projects</p>
+      <div class="repos-grid" id="repos">
+        <div class="loading">
+          <i class="fas fa-spinner fa-spin fa-2x"></i>
+          <p>Loading repositories...</p>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <footer id="contact">
+    <h3 style="margin-bottom: 1rem; font-size: 1.8rem;">Let's Connect</h3>
+    <div class="social-footer">
+      <a href="https://github.com/Thursaun" target="_blank" title="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/thursaun" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:your.email@example.com" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://twitter.com/thursaun" target="_blank" title="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Thursaun. Built with passion for clean code.</p>
+  </footer>
+
   <script>
     const GITHUB_USERNAME = "Thursaun";
     const API_BASE = `https://api.github.com/users/${GITHUB_USERNAME}`;
 
+    const languageColors = {
+      JavaScript: '#f1e05a',
+      TypeScript: '#2b7489',
+      Python: '#3572A5',
+      Java: '#b07219',
+      'C++': '#f34b7d',
+      CSS: '#563d7c',
+      HTML: '#e34c26',
+      PHP: '#4F5D95',
+      Ruby: '#701516',
+      Go: '#00ADD8',
+      Rust: '#dea584',
+      Swift: '#ffac45'
+    };
+
     async function fetchProfile() {
-        const res = await fetch(API_BASE);
-        if (!res.ok) throw new Error("Failed to fetch profile");
-        return res.json();
+      const response = await fetch(API_BASE);
+      if (!response.ok) throw new Error('Failed to fetch profile');
+      return response.json();
     }
 
     async function fetchRepos() {
-        const res = await fetch(`${API_BASE}/repos?sort=updated&per_page=6`);
-        if (!res.ok) throw new Error("Failed to fetch repos");
-        return res.json();
+      const response = await fetch(`${API_BASE}/repos?sort=updated&per_page=6`);
+      if (!response.ok) throw new Error('Failed to fetch repositories');
+      return response.json();
     }
 
     function renderProfile(profile) {
-        const el = document.getElementById("profile");
-        if (!el) return;
-        el.innerHTML = `
-            <img src="${profile.avatar_url}" alt="${profile.name}" />
-            <div class="profile-info">
-                <h1>${profile.name || profile.login}</h1>
-                <p>${profile.bio || ""}</p>
-                <div class="stats">
-                    <span class="stat">👥 ${profile.followers} followers</span>
-                    <span class="stat">⭐ ${profile.public_repos} repos</span>
-                    <span class="stat">📍 ${profile.location || ""}</span>
-                </div>
-                <p><a href="${profile.html_url}" target="_blank">View on GitHub</a></p>
+      const profileSection = document.getElementById('profile');
+      profileSection.innerHTML = `
+        <div class="profile-avatar">
+          <img src="${profile.avatar_url}" alt="${profile.name || profile.login}">
+        </div>
+        <div class="profile-info">
+          <h1>${profile.name || profile.login}</h1>
+          <p class="subtitle">@${profile.login}</p>
+          <p class="bio">${profile.bio || 'Software developer passionate about open source'}</p>
+          
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="number">${profile.public_repos}</div>
+              <div class="label">Repositories</div>
             </div>
-        `;
+            <div class="stat-card">
+              <div class="number">${profile.followers}</div>
+              <div class="label">Followers</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">${profile.following}</div>
+              <div class="label">Following</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">${profile.public_gists}</div>
+              <div class="label">Gists</div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="${profile.html_url}" target="_blank" class="social-link">
+              <i class="fab fa-github"></i> GitHub Profile
+            </a>
+            ${profile.blog ? `<a href="${profile.blog}" target="_blank" class="social-link">
+              <i class="fas fa-globe"></i> Website
+            </a>` : ''}
+            ${profile.twitter_username ? `<a href="https://twitter.com/${profile.twitter_username}" target="_blank" class="social-link">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>` : ''}
+            ${profile.location ? `<span class="social-link">
+              <i class="fas fa-map-marker-alt"></i> ${profile.location}
+            </span>` : ''}
+          </div>
+        </div>
+      `;
     }
 
     function renderRepos(repos) {
-        const el = document.getElementById("repos");
-        if (!el) return;
-        el.innerHTML = `
-            <h2>Latest Repositories</h2>
-            <ul class="repo-list">
-                ${repos.map(repo => `
-                    <li>
-                        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-                        <p>${repo.description || "No description"}</p>
-                    </li>
-                `).join("")}
-            </ul>
-        `;
+      const reposGrid = document.getElementById('repos');
+      reposGrid.innerHTML = repos.map(repo => `
+        <div class="repo-card">
+          <div class="repo-header">
+            <a href="${repo.html_url}" target="_blank" class="repo-name">
+              <i class="fas fa-folder-open"></i>
+              ${repo.name}
+            </a>
+            ${repo.stargazers_count > 0 ? `<span style="color: #f6ad55;"><i class="fas fa-star"></i> ${repo.stargazers_count}</span>` : ''}
+          </div>
+          <p class="repo-description">${repo.description || 'No description available'}</p>
+          <div class="repo-meta">
+            ${repo.language ? `
+              <span>
+                <div class="language-dot" style="background-color: ${languageColors[repo.language] || '#667eea'};"></div>
+                ${repo.language}
+              </span>
+            ` : ''}
+            ${repo.forks_count > 0 ? `<span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>` : ''}
+            <span><i class="fas fa-calendar"></i> Updated ${new Date(repo.updated_at).toLocaleDateString()}</span>
+          </div>
+        </div>
+      `).join('');
     }
 
-    async function main() {
-        try {
-            const [profile, repos] = await Promise.all([
-                fetchProfile(),
-                fetchRepos()
-            ]);
-            renderProfile(profile);
-            renderRepos(repos);
-        } catch (e) {
-            document.body.innerHTML = `<div style="color:red;text-align:center;margin-top:40px;">Failed to load GitHub data.</div>`;
-        }
+    function showError(message) {
+      document.querySelector('.container').innerHTML = `
+        <div class="error">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h2>Error Loading GitHub Data</h2>
+          <p>${message}</p>
+        </div>
+      `;
     }
 
-    main();
+    async function init() {
+      try {
+        const [profile, repos] = await Promise.all([
+          fetchProfile(),
+          fetchRepos()
+        ]);
+        
+        renderProfile(profile);
+        renderRepos(repos);
+      } catch (error) {
+        console.error('Error:', error);
+        showError('Unable to load GitHub data. Please check your internet connection and try again.');
+      }
+    }
+
+    // Initialize the app
+    init();
   </script>
 </body>
 </html>
