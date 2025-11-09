@@ -892,14 +892,16 @@
       `).join('');
     }
 
-    function showError(message) {
-      document.querySelector('.container').innerHTML = `
-        <div class="error">
-          <i class="fas fa-exclamation-triangle"></i>
-          <h2>Error Loading GitHub Data</h2>
-          <p>${message}</p>
-        </div>
-      `;
+    function showError(elementId, message) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.innerHTML = `
+          <div style="text-align: center; padding: 2rem; color: #e53e3e;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p style="margin-top: 1rem;">${message}</p>
+          </div>
+        `;
+      }
     }
 
     async function init() {
@@ -908,12 +910,13 @@
           fetchProfile(),
           fetchRepos()
         ]);
-        
+
         renderProfile(profile);
         renderRepos(repos);
       } catch (error) {
         console.error('Error:', error);
-        showError('Unable to load GitHub data. Please check your internet connection and try again.');
+        showError('about', 'Unable to load profile data. Please try again later.');
+        showError('repos', 'Unable to load repositories. Please try again later.');
       }
     }
 
