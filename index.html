@@ -817,7 +817,8 @@
     }
 
     function renderProfile(profile) {
-      const profileSection = document.getElementById('profile');
+      const profileSection = document.getElementById('about');
+      if (!profileSection) return;
       profileSection.innerHTML = `
         <div class="profile-avatar">
           <img src="${profile.avatar_url}" alt="${profile.name || profile.login}">
@@ -866,6 +867,7 @@
 
     function renderRepos(repos) {
       const reposGrid = document.getElementById('repos');
+      if (!reposGrid) return;
       reposGrid.innerHTML = repos.map(repo => `
         <div class="repo-card">
           <div class="repo-header">
