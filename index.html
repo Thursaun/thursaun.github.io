@@ -65,6 +65,18 @@
       --card-blur: 12px;
     }
 
+    body.light-theme .btn-secondary {
+      background: rgba(0, 0, 0, 0.04);
+      color: var(--text-primary);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    body.light-theme .btn-secondary:hover {
+      background: rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
     h1, h2, h3, h4, h5, h6, .logo {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
     }
@@ -261,7 +273,7 @@
     .menu-toggle span {
       width: 25px;
       height: 3px;
-      background: white;
+      background: var(--text-primary);
       border-radius: 3px;
       transition: var(--transition);
     }
@@ -282,7 +294,7 @@
     .header {
       text-align: center;
       padding: 10rem 2rem 6rem;
-      color: white;
+      color: var(--text-primary);
       position: relative;
     }
 
@@ -909,7 +921,7 @@
     /* Footer */
     footer {
       background: rgba(15, 23, 42, 0.98);
-      color: var(--text-light);
+      color: #cbd5e1;
       padding: 4rem 2rem 2rem;
       margin-top: 4rem;
       text-align: center;
@@ -949,7 +961,7 @@
       width: 50px;
       height: 50px;
       background: rgba(255, 255, 255, 0.1);
-      color: var(--text-light);
+      color: #cbd5e1;
       font-size: 1.3rem;
       border-radius: 50%;
       transition: var(--transition);
@@ -962,7 +974,7 @@
     }
 
     footer p {
-      color: var(--text-muted);
+      color: #94a3b8;
       font-size: 0.9rem;
     }
 
@@ -1052,6 +1064,11 @@
         gap: 2rem;
         transition: var(--transition);
         z-index: 1000;
+      }
+
+      body.light-theme nav ul {
+        background: rgba(248, 250, 252, 0.98);
+        border-left: 1px solid var(--border-light);
       }
 
       nav ul.open {
@@ -1327,9 +1344,9 @@
             <p class="company">Independent Projects</p>
             <p class="date"><i class="fas fa-calendar-alt"></i> Dec 2024 — Present</p>
             <ul>
-              <li>Architected and launched <strong>Diaspora Echo</strong>, a full-stack educational portal using React, Node.js, Express, and MongoDB.</li>
-              <li>Rebuilt search algorithms to query the Wikipedia Action API directly, filtering and cross-referencing against Wikidata to eliminate duplicate DB records.</li>
-              <li>Optimized performance (Largest Contentful Paint) by intercepting wiki assets to dynamically resize and lazy-load thumbnails, saving 90% bandwidth.</li>
+              <li>Architected and launched <strong>Melanifest</strong>, an automated SaaS onboarding platform enabling merchant store creation and Vercel Next.js deployments in under 20 minutes.</li>
+              <li>Developed <strong>Diaspora Echo</strong>, a full-stack educational portal, reducing page loading sizes by 90% via asset interception and lazy loading techniques.</li>
+              <li>Integrated secure integrations for Stripe Connect multi-tenant payments, DynamoDB, Google Workspace APIs, and automated Vercel integrations.</li>
             </ul>
           </div>
         </div>
@@ -1339,9 +1356,9 @@
             <p class="company">TripleTen Projects</p>
             <p class="date"><i class="fas fa-calendar-alt"></i> Jul 2024 — Dec 2024</p>
             <ul>
-              <li>Developed <strong>WTWR (What to Wear)</strong>, a dynamic recommendation app using React, Node.js, Express, and MongoDB.</li>
-              <li>Implemented secure JSON Web Token (JWT) user authorization, password hashing, and Celebrate request validation.</li>
-              <li>Provisioned Google Cloud VMs, configuring PM2 process management, and an Nginx reverse proxy with SSL certification.</li>
+              <li>Built dynamic responsive web applications and backend REST APIs using React, Node.js, Express, and MongoDB databases.</li>
+              <li>Implemented user authentication and authorization using cryptographically secure JWT tokens, password hashing, and Celebrate schema validations.</li>
+              <li>Deployed projects on Google Cloud Platform VMs, utilizing PM2 for process management and Nginx reverse proxies with Certbot SSL configurations.</li>
             </ul>
           </div>
         </div>
@@ -1455,26 +1472,25 @@
 
       <div class="project-card">
         <div class="project-header">
-          <h3 class="project-title">WTWR (What to Wear / OOTD)</h3>
+          <h3 class="project-title">Melanifest</h3>
           <div class="project-links">
-            <a href="https://www.ootd.jumpingcrab.com" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a href="https://github.com/Thursaun/se_project_express" class="project-link" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i> Code
+            <a href="https://www.melanifest.com" class="project-link" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-external-link-alt"></i> Live Site
             </a>
           </div>
         </div>
         <p class="project-description">
-          A full-stack weather-based clothing recommendation engine. Integrates a responsive React frontend client with a secure Node/Express backend REST API database. Features user authentication with cryptographically secure JWT tokens, schema validation using Celebrate/Validator, and deployment on a Google Cloud Platform VM using PM2 process manager and an Nginx reverse proxy with SSL certification.
+          An automated SaaS onboarding platform that creates and deploys custom Vercel Next.js web stores in under 20 minutes. Features full multi-tenant payment routing via Stripe Connect, Google Workspace email/domain provisioning via the Resellerclub API, automated OpenAI DALL-E asset/logo generation, and direct GitHub/Vercel pipeline deployment.
         </p>
         <div class="project-tech">
-          <span class="tech-badge">React</span>
-          <span class="tech-badge">Node.js</span>
-          <span class="tech-badge">Express.js</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="tech-badge">Google Cloud VM</span>
-          <span class="tech-badge">Nginx / SSL</span>
+          <span class="tech-badge">Next.js (App Router)</span>
+          <span class="tech-badge">TypeScript</span>
+          <span class="tech-badge">Tailwind CSS</span>
+          <span class="tech-badge">DynamoDB</span>
+          <span class="tech-badge">Stripe Connect</span>
+          <span class="tech-badge">Google Workspace API</span>
+          <span class="tech-badge">OpenAI API</span>
+          <span class="tech-badge">Vercel & GitHub APIs</span>
         </div>
       </div>
 
